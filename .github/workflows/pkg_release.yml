@@ -5,7 +5,7 @@ on:
 jobs:
   # The CI test job
   test:
-    name: ${{ matrix.gap-branch }}
+    name: pkg_release
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +15,7 @@ jobs:
           python-version: "3.12"
       - uses: gap-actions/setup-gap@v2
         with:
-          GAPBRANCH: master
+          GAPBRANCH: stable-4.13
       - uses: gap-actions/build-pkg@v1
       - uses: stertooy/ReleaseTools@v0.0.4
       
