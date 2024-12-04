@@ -17,4 +17,5 @@ jobs:
         with:
           GAPBRANCH: master
       - uses: gap-actions/build-pkg@v1
+      - uses: stertooy/ReleaseTools@v0.0.1
       
