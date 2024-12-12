@@ -17,6 +17,9 @@ jobs:
       - uses: gap-actions/setup-gap@v2
         with:
           GAPBRANCH: master
+      - name: Make GAP Manual
+        shell: bash
+        run: $HOME/gap/doc/make_doc
       - uses: gap-actions/build-pkg@v1
       - uses: stertooy/ReleaseTools@v0.0.10
         env:
