@@ -19,7 +19,7 @@ jobs:
           GAPBRANCH: master
       - name: Make GAP Manual
         shell: bash
-        run: $HOME/gap/doc/make_doc
+        run: $HOME/gap/doc/make_doc nopdf
       - uses: gap-actions/build-pkg@v1
       - uses: stertooy/ReleaseTools@v0.0.10
         env:
