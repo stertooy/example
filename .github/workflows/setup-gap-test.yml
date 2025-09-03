@@ -19,7 +19,7 @@ jobs:
     
       - name: "Setup Cygwin"
         uses: gap-actions/setup-cygwin@v2
-        if: ${{ matrix.os == 'windows-latest' }}
+        if: ${{ matrix.os == 'Windows' }}
         
       - name: "Checkout package"
         uses: actions/checkout@v5
@@ -39,6 +39,6 @@ jobs:
 
       - name: "Build package documentation"
         uses: gap-actions/build-pkg-docs@v1
-        if: ${{ matrix.os == 'ubuntu-latest' }}
+        if: ${{ runner.os == 'Linux' }}
         with:
           use-latex: 'true'
