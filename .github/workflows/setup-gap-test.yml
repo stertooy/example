@@ -1,0 +1,43 @@
+name: setup-gap-test
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+
+jobs:
+
+  test:
+    name: "Test package with GAP-${{ matrix.gap-version }} on ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ "ubuntu-latest", "macos-latest", "windows-latest" ]
+        gap-version: [ "latest", "v4.15.0-beta1", "master" ]
+
+    steps:
+    
+      - name: "Setup Cygwin"
+        uses: gap-actions/setup-cygwin@v2
+        if: ${{ matrix.os == 'windows-latest' }}
+        
+      - name: "Checkout package"
+        uses: actions/checkout@v5
+
+      - name: "Setup GAP"
+        uses: gap-actions/setup-gap@master
+        with:
+          gap-version: ${{ matrix.gap-version }}
+
+      - name: "Build package"
+        uses: gap-actions/build-pkg@v1
+          
+      - name: "Run package tests"
+        uses: gap-actions/run-pkg-tests@v3
+        with:
+          warnings-as-errors: true
+
+      - name: "Build package documentation"
+        uses: gap-actions/build-pkg-docs@v1
+        with:
+          use-latex: 'true'
