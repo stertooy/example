@@ -19,7 +19,7 @@ jobs:
     
       - name: "Setup Cygwin"
         uses: gap-actions/setup-cygwin@v2
-        if: ${{ matrix.os == 'Windows' }}
+        if: ${{ runner.os == 'Windows' }}
         
       - name: "Checkout package"
         uses: actions/checkout@v5
