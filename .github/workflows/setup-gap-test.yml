@@ -39,5 +39,6 @@ jobs:
 
       - name: "Build package documentation"
         uses: gap-actions/build-pkg-docs@v1
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           use-latex: 'true'
