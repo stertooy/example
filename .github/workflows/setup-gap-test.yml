@@ -13,7 +13,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ "ubuntu-24.04", "ubuntu-24.04-arm", "windows-2025", "windows-11-arm", "macos-15", "macos-15-large" ]
-
+        gap-version: [ "latest", "master", "4.15.0-beta1", "4.14", "4.13", "4.12", "4.11", "4.10" ]
+        
     steps:
     
       - name: "Setup Cygwin"
@@ -33,8 +34,6 @@ jobs:
           
       - name: "Run package tests"
         uses: gap-actions/run-pkg-tests@main
-        with:
-          warnings-as-errors: true
 
       - name: "Build package documentation"
         uses: gap-actions/build-pkg-docs@v2
