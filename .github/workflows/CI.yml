@@ -28,7 +28,7 @@ jobs:
         with:
           gap-version: ${{ matrix.gap-version }}
       - uses: gap-actions/build-pkg@v2
-      - uses: gap-actions/isntall-pkg@v2
+      - uses: stertooy/install-pkg@main
         with:
           packages: 'io json'
       - uses: gap-actions/run-pkg-tests@v4
