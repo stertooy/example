@@ -30,5 +30,5 @@ jobs:
       - uses: gap-actions/build-pkg@v2
       - uses: stertooy/install-pkg@main
         with:
-          packages: 'example'
+          packages: 'utils'
       - uses: gap-actions/run-pkg-tests@v4
